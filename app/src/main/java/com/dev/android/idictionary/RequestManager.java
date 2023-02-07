@@ -1,6 +1,7 @@
 package com.dev.android.idictionary;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import com.dev.android.idictionary.Models.ApiResponse;
 
@@ -53,6 +54,7 @@ public class RequestManager {
             });
         }catch (Exception e){
             e.printStackTrace();
+            Toast.makeText(context, "An Error Occurred!!", Toast.LENGTH_SHORT).show();
         }
 
     }
