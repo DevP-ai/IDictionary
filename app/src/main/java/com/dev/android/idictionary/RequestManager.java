@@ -44,12 +44,16 @@ public class RequestManager {
             call.enqueue(new Callback<List<ApiResponse>>() {
                 @Override
                 public void onResponse(Call<List<ApiResponse>> call, Response<List<ApiResponse>> response) {
-
+                      if(!response.isSuccessful()){
+                          Toast.makeText(context, "Error! Response is not Success ", Toast.LENGTH_SHORT).show();
+                          return;
+                      }
+                      listener.onFetchData(response.body().get(0),response.message());
                 }
 
                 @Override
                 public void onFailure(Call<List<ApiResponse>> call, Throwable t) {
-
+                    listener.onError("Request Failure");
                 }
             });
         }catch (Exception e){
