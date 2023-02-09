@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.dev.android.idictionary.R;
 
 public class MeaningViewHolder extends RecyclerView.ViewHolder {
-    TextView textView_partsOfSpeech;
-    RecyclerView recycler_definitions;
+    public  TextView textView_partsOfSpeech;
+    public  RecyclerView recycler_definitions;
     public MeaningViewHolder(@NonNull View itemView) {
         super(itemView);
 

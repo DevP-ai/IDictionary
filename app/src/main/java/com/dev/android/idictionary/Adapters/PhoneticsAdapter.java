@@ -47,11 +47,27 @@ public class PhoneticsAdapter extends RecyclerView.Adapter<PhoneticViewHolder> {
                      player.prepare();
                      player.start();
 
+
+//
 //                     player.setAudioAttributes(
 //                             new AudioAttributes
 //                                     .Builder()
-//                                     .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+//                                     .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
 //                                     .build());
+
+
+//                     String url = "http://"+phoneticsList.get(position).getAudio();
+//                     player.setAudioAttributes(
+//                             new AudioAttributes.Builder()
+//                                     .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+//                                     .setUsage(AudioAttributes.USAGE_MEDIA)
+//                                     .build()
+//                     );
+//                     player.setDataSource(url);
+//                     player.prepare(); // might take long! (for buffering, etc)
+//                     player.start();
+
+
                  }catch (Exception e){
                      e.printStackTrace();
                      Toast.makeText(context, "Couldn't play audio", Toast.LENGTH_SHORT).show();
