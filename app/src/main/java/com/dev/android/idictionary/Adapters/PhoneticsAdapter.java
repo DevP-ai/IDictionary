@@ -1,11 +1,13 @@
 package com.dev.android.idictionary.Adapters;
 
 import android.content.Context;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +21,11 @@ import java.util.List;
 public class PhoneticsAdapter extends RecyclerView.Adapter<PhoneticViewHolder> {
     private Context context;
     private List<Phonetics> phoneticsList;
+
+    public PhoneticsAdapter(Context context, List<Phonetics> phoneticsList) {
+        this.context = context;
+        this.phoneticsList = phoneticsList;
+    }
 
     @NonNull
     @Override
@@ -36,8 +43,18 @@ public class PhoneticsAdapter extends RecyclerView.Adapter<PhoneticViewHolder> {
 
                  try{
                      player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                     player.setDataSource("https:"+phoneticsList.get(position).getAudio());
+                     player.prepare();
+                     player.start();
+
+//                     player.setAudioAttributes(
+//                             new AudioAttributes
+//                                     .Builder()
+//                                     .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+//                                     .build());
                  }catch (Exception e){
                      e.printStackTrace();
+                     Toast.makeText(context, "Couldn't play audio", Toast.LENGTH_SHORT).show();
                  }
              }
          });
